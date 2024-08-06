@@ -3,9 +3,11 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+}
+
+body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     background-image: url('images/Background.jpg');
     background-size: cover;
     background-position: center;
@@ -16,6 +18,8 @@ body, html {
 .logo {
     text-align: center;
     padding: 20px 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 2;
 }
 
 .logo img {
@@ -30,6 +34,8 @@ body, html {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 1;
 }
 
 .widget-container {
@@ -92,22 +98,17 @@ body, html {
     color: rgba(255, 255, 255, 0.8);
 }
 
-
-.widget.blue, .widget.black {
-    transform: none;
-}
-
 .widget:hover {
-    transform: scale(1.05) rotate(0);
+    transform: scale(1.05);
 }
-
 
 .footer {
     text-align: center;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     font-size: 14px;
     line-height: 1.4;
+    z-index: 2;
 }
 
 .instagram-link {
@@ -116,4 +117,16 @@ body, html {
     color: black;
     text-decoration: none;
     font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+    .widget-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .widget-container {
+        grid-template-columns: 1fr;
+    }
 }
