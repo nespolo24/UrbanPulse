@@ -3,6 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    cursor: none;
 }
 
 body {
@@ -13,37 +14,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    cursor: none; /* Versteckt den Standard-Cursor */
-}
-
-.custom-cursor {
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    font-size: 24px;
-    transform: translate(-50%, -50%);
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.2); opacity: 0.7; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-@keyframes orbit {
-    0% { transform: rotate(0deg) translateX(60px) rotate(0deg); }
-    100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
-}
-
-.widget.pulsing::before {
-    content: '⚡';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 50px;
-    animation: pulse 0.5s infinite;
-    z-index: 10;
 }
 
 .logo {
@@ -56,7 +26,7 @@ body {
 .logo img {
     max-width: 200px;
     height: auto;
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1.2));
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
 }
 
 .content {
@@ -118,33 +88,6 @@ body {
     transform: scale(1.1);
 }
 
-.widget::before,
-.widget::after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.7);
-    top: 50%;
-    left: 50%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.widget::before {
-    animation: orbit 4s linear infinite;
-}
-
-.widget::after {
-    animation: orbit 4s linear infinite reverse;
-}
-
-.widget:hover::before,
-.widget:hover::after {
-    opacity: 1;
-}
-
 .artist-name {
     font-size: 28px;
     font-weight: bold;
@@ -165,7 +108,7 @@ body {
     text-align: center;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9);
-    font-size: 17px;
+    font-size: 14px;
     line-height: 1.4;
     z-index: 2;
 }
@@ -176,6 +119,90 @@ body {
     color: black;
     text-decoration: none;
     font-weight: bold;
+}
+
+.custom-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 24px;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.widget.pulsing::before {
+    content: '⚡';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    animation: pulse 0.5s infinite;
+    z-index: 10;
+}
+
+.widget::before,
+.widget::after,
+.widget .particle {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.widget:hover::before,
+.widget:hover::after,
+.widget:hover .particle {
+    opacity: 1;
+}
+
+@keyframes swarm1 {
+    0%, 100% { transform: translate(calc(var(--x1) * 1px), calc(var(--y1) * 1px)); }
+    50% { transform: translate(calc(var(--x2) * 1px), calc(var(--y2) * 1px)); }
+}
+
+@keyframes swarm2 {
+    0%, 100% { transform: translate(calc(var(--x3) * 1px), calc(var(--y3) * 1px)); }
+    50% { transform: translate(calc(var(--x4) * 1px), calc(var(--y4) * 1px)); }
+}
+
+.widget::before {
+    --x1: 50; --y1: -60; --x2: 60; --y2: 50;
+    top: 50%; left: 50%;
+    animation: swarm1 4s infinite;
+}
+
+.widget::after {
+    --x1: -60; --y1: 40; --x2: 70; --y2: -30;
+    top: 50%; left: 50%;
+    animation: swarm2 5s infinite;
+}
+
+.widget .particle:nth-child(1) {
+    --x3: 40; --y3: 60; --x4: -50; --y4: -40;
+    top: 20%; left: 20%;
+    animation: swarm1 6s infinite;
+}
+
+.widget .particle:nth-child(2) {
+    --x3: -30; --y3: -70; --x4: 60; --y4: 30;
+    top: 80%; left: 80%;
+    animation: swarm2 7s infinite;
+}
+
+.widget .particle:nth-child(3) {
+    --x1: 70; --y1: 0; --x2: -70; --y2: 0;
+    top: 50%; left: 50%;
+    animation: swarm1 5s infinite;
 }
 
 @media (max-width: 1200px) {
