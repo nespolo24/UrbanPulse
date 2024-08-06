@@ -1,14 +1,10 @@
-body {
+body, html {
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: white;
-    cursor: none;
-    display: flex;
-    flex-direction: column;
+    overflow: hidden; /* Verhindert Scrollen */
     position: relative;
-    overflow: hidden; /* Verhindert das Überlappen des Hintergrunds */
 }
 
 body::before {
@@ -18,42 +14,33 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('images/Background.gif'); /* Verwende den Pfad deines GIFs */
-    background-size: cover; /* Passt das GIF an die Größe des Fensters an */
+    background-image: url('images/UrbanPulseLogo.gif'); /* Verwende den Pfad deines GIFs */
+    background-size: cover; /* Füllt den gesamten Bildschirm */
     background-position: center; /* Zentriert das GIF */
     background-repeat: no-repeat; /* Verhindert die Wiederholung des GIFs */
-    opacity: 0.1; /* Reduziert die Opazität auf 50% */
+    opacity: 0.1; /* Setzt die Deckkraft auf 10% */
     z-index: -1; /* Setzt den Hintergrund hinter den Inhalt */
 }
 
-.custom-cursor {
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    font-size: 24px;
-    transform: translate(-50%, -50%);
-}
-
 .top-bar {
-    background-color: white;
     text-align: center;
     padding: 1em;
+    background-color: rgba(255, 255, 255, 0.5); /* Transparenter Hintergrund für Lesbarkeit */
 }
 
 .logo {
-    width: 150px; /* Angepasste Breite des Logos */
-    height: auto; /* Erhält das Seitenverhältnis */
-    max-width: 100%; /* Sicherstellen, dass das Logo nicht den Container sprengt */
-    display: block; /* Zentriert das Logo innerhalb des Containers */
-    margin: 0 auto; /* Zentriert das Logo horizontal */
+    max-width: 150px; /* Passt die Größe des Logos an */
+    height: auto;
 }
 
 .content {
     flex-grow: 1;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative; /* Stelle sicher, dass der Inhalt über dem Hintergrund liegt */
+    justify-content: center; /* Zentriert die Widgets horizontal */
+    align-items: center; /* Zentriert die Widgets vertikal */
+    position: relative;
+    height: calc(100vh - 150px); /* Nimmt den gesamten sichtbaren Bereich ein, abzüglich Header und Footer */
+    margin: 0 auto;
 }
 
 .widget-container {
@@ -63,7 +50,6 @@ body::before {
     align-items: center;
     gap: 2em;
     padding: 2em;
-    position: relative; /* Stelle sicher, dass der Inhalt über dem Hintergrund liegt */
 }
 
 .widget {
@@ -114,9 +100,10 @@ body::before {
 .footer {
     text-align: center;
     padding: 2em;
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative; /* Stelle sicher, dass der Inhalt über dem Hintergrund liegt */
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.5); /* Transparenter Hintergrund für Lesbarkeit */
+    width: 100%;
+    box-sizing: border-box; /* Stellt sicher, dass Padding nicht zur Breite hinzukommt */
 }
 
 .footer-text {
