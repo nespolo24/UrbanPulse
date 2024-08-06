@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Pulse Collective</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            cursor: none;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        .custom-cursor {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            font-size: 24px;
+            transform: translate(-50%, -50%);
+        }
+        .top-bar {
+            background-color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        .logo {
+            max-width: 300px;
+            height: auto;
+        }
+        /* Rest of the styles remain the same */
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .widget-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2em;
+            padding: 2em;
+        }
+        .widget {
+            width: 250px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .widget:nth-child(odd) {
+            background-color: #0000FF;
+            transform: rotate(5deg);
+        }
+        .widget:nth-child(even) {
+            background-color: #000000;
+            transform: rotate(-5deg);
+        }
+        .widget:hover {
+            transform: scale(1.05) rotate(0);
+        }
+        .widget.active {
+            transform: scale(1.2) rotate(0);
+            z-index: 10;
+        }
+        .artist-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .real-name {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        .footer {
+            text-align: center;
+            padding: 2em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .footer-text {
+            font-size: 1.2em;
+            margin-bottom: 1em;
+            line-height: 1.5;
+        }
+        .instagram-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #000;
+            text-decoration: none;
+        }
+        .instagram-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-cursor">🔊</div>
+    <div class="top-bar">
+        <img src="/api/placeholder/300/100" alt="Urban Pulse Collective Logo" class="logo">
+    </div>
+    <div class="content">
+        <div class="widget-container">
+            <div class="widget" onclick="toggleActive(this)">
+                <div class="artist-name">Klang</div>
+                <div class="real-name">Kai Hartmann</div>
+            </div>
+            <div class="widget" onclick="toggleActive(this)">
+                <div class="artist-name">Lil Niklas</div>
+                <div class="real-name">Niklas Schanz</div>
+            </div>
+            <div class="widget" onclick="toggleActive(this)">
+                <div class="artist-name">Zenith Frost</div>
+                <div class="real-name">Yasin Yilmaz</div>
+            </div>
+            <div class="widget" onclick="toggleActive(this)">
+                <div class="artist-name">Re4ctor</div>
+                <div class="real-name">Dennis Manzen</div>
+            </div>
+            <div class="widget" onclick="toggleActive(this)">
+                <div class="artist-name">OriBlazee</div>
+                <div class="real-name">Arian Blahic</div>
+            </div>
+            <div class="widget" onclick="toggleActive(this)">
+                <div class="artist-name">Markmann</div>
+                <div class="real-name">Mark Zappler</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-text">
+            <p><strong>UrbanPulseCollective – Wo einzigartige Künstler aufeinandertreffen, um etwas Großes zu schaffen. Sechs Talente, eine Mission. Sei dabei und folge uns auf Instagram:</strong></p>
+        </div>
+        <a href="https://www.instagram.com/UrbanPulseCollective" class="instagram-link" target="_blank">
+            <div class="instagram-icon"></div>
+            @UrbanPulseCollective
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.custom-cursor');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        function toggleActive(element) {
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
