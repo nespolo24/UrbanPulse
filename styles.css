@@ -3,44 +3,45 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Verhindert Scrollen */
+    overflow: hidden;
     position: relative;
 }
 
 body::before {
     content: "";
-    position: absolute;
+    position: fixed; /* Fixiert das Hintergrundbild */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('images/UrbanPulseLogo.gif'); /* Verwende den Pfad deines GIFs */
-    background-size: cover; /* Füllt den gesamten Bildschirm */
-    background-position: center; /* Zentriert das GIF */
-    background-repeat: no-repeat; /* Verhindert die Wiederholung des GIFs */
-    opacity: 0.1; /* Setzt die Deckkraft auf 10% */
-    z-index: -1; /* Setzt den Hintergrund hinter den Inhalt */
+    background-image: url('images/UrbanPulseLogo.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: -1;
 }
 
 .top-bar {
     text-align: center;
     padding: 1em;
-    background-color: rgba(255, 255, 255, 0.5); /* Transparenter Hintergrund für Lesbarkeit */
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .logo {
-    max-width: 150px; /* Passt die Größe des Logos an */
+    max-width: 150px;
     height: auto;
 }
 
 .content {
     flex-grow: 1;
     display: flex;
-    justify-content: center; /* Zentriert die Widgets horizontal */
-    align-items: center; /* Zentriert die Widgets vertikal */
+    justify-content: center;
+    align-items: center;
     position: relative;
-    height: calc(100vh - 150px); /* Nimmt den gesamten sichtbaren Bereich ein, abzüglich Header und Footer */
+    height: calc(100vh - 200px);
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .widget-container {
@@ -101,9 +102,9 @@ body::before {
     text-align: center;
     padding: 2em;
     position: relative;
-    background-color: rgba(255, 255, 255, 0.5); /* Transparenter Hintergrund für Lesbarkeit */
+    background-color: rgba(255, 255, 255, 0.8);
     width: 100%;
-    box-sizing: border-box; /* Stellt sicher, dass Padding nicht zur Breite hinzukommt */
+    box-sizing: border-box;
 }
 
 .footer-text {
