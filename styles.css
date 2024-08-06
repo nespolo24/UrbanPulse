@@ -27,8 +27,11 @@ body {
 }
 
 .logo {
-    max-width: 300px;
-    height: auto;
+    width: 150px; /* Angepasste Breite des Logos */
+    height: auto; /* Erhält das Seitenverhältnis */
+    max-width: 100%; /* Sicherstellen, dass das Logo nicht den Container sprengt */
+    display: block; /* Zentriert das Logo innerhalb des Containers */
+    margin: 0 auto; /* Zentriert das Logo horizontal */
 }
 
 .content {
