@@ -22,7 +22,7 @@ body::before {
     background-size: cover; /* Passt das GIF an die Größe des Fensters an */
     background-position: center; /* Zentriert das GIF */
     background-repeat: no-repeat; /* Verhindert die Wiederholung des GIFs */
-    opacity: 0.5; /* Reduziert die Opazität auf 50% */
+    opacity: 0.1; /* Reduziert die Opazität auf 50% */
     z-index: -1; /* Setzt den Hintergrund hinter den Inhalt */
 }
 
@@ -53,6 +53,7 @@ body::before {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative; /* Stelle sicher, dass der Inhalt über dem Hintergrund liegt */
 }
 
 .widget-container {
@@ -62,6 +63,7 @@ body::before {
     align-items: center;
     gap: 2em;
     padding: 2em;
+    position: relative; /* Stelle sicher, dass der Inhalt über dem Hintergrund liegt */
 }
 
 .widget {
@@ -114,6 +116,7 @@ body::before {
     padding: 2em;
     max-width: 800px;
     margin: 0 auto;
+    position: relative; /* Stelle sicher, dass der Inhalt über dem Hintergrund liegt */
 }
 
 .footer-text {
