@@ -30,6 +30,11 @@ body {
     100% { transform: scale(1); opacity: 1; }
 }
 
+@keyframes orbit {
+    0% { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+
 .widget.pulsing::before {
     content: '⚡';
     position: absolute;
@@ -81,6 +86,7 @@ body {
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     overflow: hidden;
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .widget.blue {
@@ -110,6 +116,33 @@ body {
 
 .widget:hover .widget-image img {
     transform: scale(1.1);
+}
+
+.widget::before,
+.widget::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.widget::before {
+    animation: orbit 4s linear infinite;
+}
+
+.widget::after {
+    animation: orbit 4s linear infinite reverse;
+}
+
+.widget:hover::before,
+.widget:hover::after {
+    opacity: 1;
 }
 
 .artist-name {
