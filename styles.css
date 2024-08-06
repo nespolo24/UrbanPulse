@@ -13,6 +13,32 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    cursor: none; /* Versteckt den Standard-Cursor */
+}
+
+.custom-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 24px;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.widget.pulsing::before {
+    content: '⚡';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    animation: pulse 0.5s infinite;
+    z-index: 10;
 }
 
 .logo {
