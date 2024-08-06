@@ -41,27 +41,59 @@ body, html {
 }
 
 .widget {
-    width: 250px;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
+    width: 280px;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     transition: all 0.3s ease;
 }
 
-.widget.blue {
-    background-color: #0000FF;
-    transform: rotate(5deg);
+.widget img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-.widget.black {
-    background-color: #000000;
-    transform: rotate(-5deg);
+.widget-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.widget:hover .widget-text {
+    opacity: 1;
+}
+
+.widget:hover img {
+    transform: scale(1.1);
+}
+
+.artist-name {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.real-name {
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.widget.blue, .widget.black {
+    transform: none;
 }
 
 .widget:hover {
