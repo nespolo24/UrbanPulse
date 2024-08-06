@@ -25,7 +25,7 @@ body {
 .logo img {
     max-width: 200px;
     height: auto;
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1.2));
 }
 
 .content {
@@ -106,7 +106,7 @@ body {
     text-align: center;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9);
-    font-size: 14px;
+    font-size: 17px;
     line-height: 1.4;
     z-index: 2;
 }
