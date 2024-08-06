@@ -3,57 +3,33 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    overflow: hidden;
-    position: relative;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('images/UrbanPulseLogo.gif');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.05;
-    z-index: -1;
-}
-
-.custom-cursor {
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    font-size: 24px;
-    transform: translate(-50%, -50%);
-}
-
-.top-bar {
-    text-align: center;
-    padding: 1em;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .logo {
-    max-width: 150px;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.logo img {
+    max-width: 200px;
     height: auto;
 }
 
 .content {
+    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 200px);
 }
 
 .widget-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -70,26 +46,20 @@ body::before {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
-    cursor: pointer;
 }
 
-.widget:nth-child(odd) {
+.widget.blue {
     background-color: #0000FF;
     transform: rotate(5deg);
 }
 
-.widget:nth-child(even) {
+.widget.black {
     background-color: #000000;
     transform: rotate(-5deg);
 }
 
 .widget:hover {
     transform: scale(1.05) rotate(0);
-}
-
-.widget.active {
-    transform: scale(1.2) rotate(0);
-    z-index: 10;
 }
 
 .artist-name {
@@ -104,33 +74,17 @@ body::before {
 }
 
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
     text-align: center;
-    padding: 1em;
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-.footer-text {
-    font-size: 1em;
-    margin-bottom: 0.5em;
-    line-height: 1.3;
+    padding: 20px;
+    background-color: white;
+    font-size: 14px;
+    line-height: 1.4;
 }
 
 .instagram-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1em;
-    color: #000;
+    display: inline-block;
+    margin-top: 10px;
+    color: black;
     text-decoration: none;
-}
-
-.instagram-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    background-color: #000;
+    font-weight: bold;
 }
