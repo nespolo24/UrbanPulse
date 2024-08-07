@@ -44,20 +44,20 @@ body {
     align-items: center;
     padding: 20px;
     z-index: 1;
-    margin-bottom: 60px; /* Mehr Abstand zum Footer */
+    margin-bottom: 60px;
 }
 
 .widget-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
-    max-width: 1200px;
+    gap: 40px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
 .widget {
-    width: 280px;
-    height: 380px;
+    width: 320px;
+    height: 420px;
     display: flex;
     flex-direction: column;
     border-radius: 15px;
@@ -96,24 +96,25 @@ body {
     transition: transform 0.3s ease;
 }
 
+.widget:hover {
+    transform: scale(1.1);
+    z-index: 10;
+}
+
 .widget:hover .widget-image img {
     transform: scale(1.1);
 }
 
 .artist-name {
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 5px;
     color: white;
 }
 
 .real-name {
-    font-size: 18px;
+    font-size: 20px;
     color: rgba(255, 255, 255, 0.8);
-}
-
-.widget:hover {
-    transform: scale(1.05);
 }
 
 .footer {
@@ -153,7 +154,7 @@ body {
     z-index: 10;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
     .widget-container {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -162,5 +163,9 @@ body {
 @media (max-width: 768px) {
     .widget-container {
         grid-template-columns: 1fr;
+    }
+    .widget {
+        width: 280px;
+        height: 380px;
     }
 }
