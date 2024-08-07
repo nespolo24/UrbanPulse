@@ -1,15 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
 body, html {
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
 }
+
 body {
     display: flex;
     flex-direction: column;
     position: relative;
 }
+
 .background-overlay {
     position: fixed;
     top: 0;
@@ -23,25 +26,29 @@ body {
     opacity: 0.75;
     z-index: -1;
 }
+
 .logo {
     text-align: center;
     padding: 20px 0;
     z-index: 2;
 }
+
 .logo img {
     max-width: 250px;
     height: auto;
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
 }
+
 .content {
     flex-grow: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
     z-index: 1;
-    margin-bottom: 60px;
 }
+
 .widget-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -50,6 +57,7 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+
 .widget {
     width: 100%;
     height: 650px;
@@ -61,6 +69,7 @@ body {
     transition: all 0.4s ease;
     background: linear-gradient(145deg, rgba(0,0,0,0.8), rgba(0,0,255,0.8));
 }
+
 .widget-text {
     padding: 20px;
     flex: 0 0 auto;
@@ -71,23 +80,28 @@ body {
     text-align: center;
     background: rgba(0, 0, 0, 0.7);
 }
+
 .widget-image {
     flex: 1;
     overflow: hidden;
 }
+
 .widget-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.4s ease;
 }
+
 .widget:hover {
     transform: scale(1.05) translateY(-10px);
     box-shadow: 0 15px 30px rgba(255,255,255,0.3);
 }
+
 .widget:hover .widget-image img {
     transform: scale(1.1);
 }
+
 .artist-name {
     font-size: 32px;
     font-weight: 700;
@@ -96,39 +110,41 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
 .real-name {
     font-size: 20px;
     color: rgba(255, 255, 255, 0.8);
     letter-spacing: 0.5px;
     font-weight: 300;
 }
-.footer {
-    text-align: center;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
-    font-size: 16px;
-    line-height: 1.4;
-    z-index: 2;
-    color: white;
-}
-.footer p {
-    margin: 0 0 10px 0;
-}
-.instagram-link {
+
+.instagram-button {
     display: inline-block;
-    color: #00ffff;
+    background-color: #00ffff;
+    color: #000;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
+    font-size: 18px;
+    padding: 15px 30px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    margin-top: 40px;
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
 }
-.instagram-link:hover {
-    color: #ff00ff;
+
+.instagram-button:hover {
+    background-color: #ff00ff;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 0, 255, 0.4);
 }
+
 @keyframes pulse {
     0% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.2); opacity: 0.7; }
     100% { transform: scale(1); opacity: 1; }
 }
+
 .widget.pulsing::before {
     content: '⚡';
     position: absolute;
@@ -139,11 +155,13 @@ body {
     animation: pulse 0.5s infinite;
     z-index: 10;
 }
+
 @media (max-width: 1600px) {
     .widget-container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
 @media (max-width: 1000px) {
     .widget-container {
         grid-template-columns: 1fr;
@@ -152,6 +170,7 @@ body {
         height: 450px;
     }
 }
+
 @media (max-width: 600px) {
     .widget {
         height: 400px;
@@ -161,5 +180,9 @@ body {
     }
     .real-name {
         font-size: 18px;
+    }
+    .instagram-button {
+        font-size: 16px;
+        padding: 12px 24px;
     }
 }
