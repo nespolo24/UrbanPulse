@@ -61,7 +61,7 @@ body {
 
 .widget {
     width: 100%;
-    height: 650px;
+    height: 750px; /* Erhöhte Höhe von 650px auf 750px */
     display: flex;
     flex-direction: column;
     border-radius: 20px;
@@ -168,13 +168,13 @@ body {
         grid-template-columns: 1fr;
     }
     .widget {
-        height: 450px;
+        height: 550px; /* Angepasste Höhe für kleinere Bildschirme */
     }
 }
 
 @media (max-width: 600px) {
     .widget {
-        height: 400px;
+        height: 500px;
     }
     .artist-name {
         font-size: 28px;
