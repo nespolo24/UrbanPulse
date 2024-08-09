@@ -61,7 +61,7 @@ body {
 
 .widget {
     width: 100%;
-    height: 700px; /* Erhöhte Höhe von 650px auf 750px */
+    height: 350px; /* Reduced height from 700px to 350px */
     display: flex;
     flex-direction: column;
     border-radius: 20px;
@@ -104,7 +104,7 @@ body {
 }
 
 .artist-name {
-    font-size: 32px;
+    font-size: 16px; /* Reduced font size from 32px to 16px */
     font-weight: 700;
     margin-bottom: 5px;
     color: white;
@@ -113,7 +113,7 @@ body {
 }
 
 .real-name {
-    font-size: 20px;
+    font-size: 10px; /* Reduced font size from 20px to 10px */
     color: rgba(255, 255, 255, 0.8);
     letter-spacing: 0.5px;
     font-weight: 300;
@@ -163,24 +163,22 @@ body {
     }
 }
 
+/* Adjusted media queries for smaller screens */
 @media (max-width: 1000px) {
-    .widget-container {
-        grid-template-columns: 1fr;
-    }
     .widget {
-        height: 550px; /* Angepasste Höhe für kleinere Bildschirme */
+        height: 275px; /* Adjusted height for smaller screens */
     }
 }
 
 @media (max-width: 600px) {
     .widget {
-        height: 500px;
+        height: 250px; /* Adjusted height for very small screens */
     }
     .artist-name {
-        font-size: 28px;
+        font-size: 14px;
     }
     .real-name {
-        font-size: 18px;
+        font-size: 9px;
     }
     .instagram-button {
         font-size: 16px;
