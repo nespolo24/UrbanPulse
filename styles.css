@@ -104,7 +104,7 @@ body {
 }
 
 .artist-name {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 700;
     margin-bottom: 5px;
     color: white;
@@ -113,7 +113,7 @@ body {
 }
 
 .real-name {
-    font-size: 20px;
+    font-size: 16px;
     color: rgba(255, 255, 255, 0.8);
     letter-spacing: 0.5px;
     font-weight: 300;
